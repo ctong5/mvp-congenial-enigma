@@ -9,6 +9,10 @@ module.exports = {
     filename: 'bundle.js',
   },
 
+  stats: {
+    warnings: false,
+  },
+
   module: {
     rules: [
       {
