@@ -8,11 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, './client/dist'),
     filename: 'bundle.js',
   },
-
   stats: {
     warnings: false,
   },
-
   module: {
     rules: [
       {
