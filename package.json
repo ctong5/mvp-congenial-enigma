@@ -1,0 +1,39 @@
+{
+  "name": "mvp-congenial-enigma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon server/index.js",
+    "build:dev": "webpack -wd",
+    "build:prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctong5/mvp-congenial-enigma.git"
+  },
+  "author": "Cassandra Tong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctong5/mvp-congenial-enigma/issues"
+  },
+  "homepage": "https://github.com/ctong5/mvp-congenial-enigma#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
+  }
+}
