@@ -4,10 +4,10 @@ const Signup = () => {
   return (
     <div>
       <form>
-        <input type="text" name="firstname" />
-        <input type="text" name="lastname" />
-        <input type="text" name="email" /> 
-        <input type="text" name="password" />
+        <input type="text" name="firstname" placeholder="Firstname" />
+        <input type="text" name="lastname" placeholder="Lastname" />
+        <input type="text" name="email" placeholder="Email" /> 
+        <input type="text" name="password" placeholder="Password" />
         <input type="submit" value="Submit" />
       </form>
     </div>

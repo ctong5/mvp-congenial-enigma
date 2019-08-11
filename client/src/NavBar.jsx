@@ -2,14 +2,16 @@ import React from 'react';
 
 const NavBar = (props) => {
   const {
-    handleSignUpClick,
+    handleClickSignup,
+    handleClickHome,
+    handleClickLogin,
   } = props;
 
   return (
     <div>
-      <button>Home</button>
-      <button onClick={() => handleSignUpClick()}>Sign Up</button>
-      <button>Login</button>
+      <button onClick={() => handleClickHome()}>Home</button>
+      <button onClick={() => handleClickSignup()}>Sign Up</button>
+      <button onClick={() => handleClickLogin()}>Login</button>
     </div>
   );
 };
