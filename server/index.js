@@ -3,6 +3,7 @@ const app = express();
 const port = 4000;
 const morgan = require('morgan');
 const path = require('path');
+const db = require('../database/index.js');
 
 app.use(morgan('dev'));
 app.use(express.json());
