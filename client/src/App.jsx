@@ -68,6 +68,7 @@ class App extends React.Component {
       this.setState ({
         searchLon: responseMapbox.data.features[0].geometry.coordinates[0],
         searchLat: responseMapbox.data.features[0].geometry.coordinates[1],
+        searchTerm: '',
       });
     })
     .then(() => this.searchHikingProject(this.state.searchLat, this.state.searchLon, this.props.searchHikingProject))
