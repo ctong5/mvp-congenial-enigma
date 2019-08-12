@@ -14,7 +14,7 @@ app.get('/test', (req, res) => {
   res.send(`hello from get ${port}`).status(200);
 });
 
-app.post('/', controllers.createUser);
+app.post('/newuser', controllers.createUser);
 
 app.listen(port, () => {
   console.log(`Express listening on port ${port}`);
