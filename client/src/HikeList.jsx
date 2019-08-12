@@ -11,9 +11,9 @@ const HikeList = (props) => {
           <HikeItem 
             key={hike.id}
             name={hike.name}
-            imgSmall={hike.imgSmall}
+            imgSmallMed={hike.imgSmallMed}
             location={hike.location}
-            start={hike.stars}
+            stars={hike.stars}
             summary={hike.summary}
           />
         ))}
