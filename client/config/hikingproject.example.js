@@ -1,0 +1,3 @@
+const HIKINGPROJECT_API_KEY = 'API KEY HERE';
+
+export default HIKINGPROJECT_API_KEY;

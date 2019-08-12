@@ -4,6 +4,7 @@ import Landing from './Landing';
 import NavBar from './NavBar';
 import Signup from './Signup';
 import Login from './Login';
+import HikeList from './HikeList';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends React.Component {
       searchTerm: '',
       searchLat: 0,
       searchLon: 0,
-      hikeResults:'',
+      hikeResults: '',
     };
     this.handleClickSignup = this.handleClickSignup.bind(this);
     this.handleClickHome = this.handleClickHome.bind(this);
@@ -75,19 +76,53 @@ class App extends React.Component {
     })
   }
 
+  addUser(newUser) {
+    alert('it works')
+    e.preventDefault();
+    console.log(e.target.name)
+    // axios.post('/endpoint', {
+    //   firstname: 'newUser.firstname',
+    //   lastname: 'newUser.lastname',
+    //   email: 'newUser.email',
+    //   password: 'newUser.password',
+    // })
+    // .then((res)=> {
+    //   console.log(res);
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
+  }
+
   render() {
+    const{
+      page,
+      searchTerm,
+      hikeResults,
+    } = this.state;
+
     let currentview;
-    if (this.state.page === 'signup') {
+    if (page === 'signup') {
       currentview = <Signup addUser={this.addUser}/>
-    } else if (this.state.page === 'home') {
+    } else if (page === 'home') {
       currentview = (
-        <Landing 
-          handleSearch={this.handleSearch} 
-          submitSearch={this.submitSearch} 
-          searchTerm={this.state.searchTerm}
-        />
+        <div>
+
+          <div>
+            <Landing 
+              handleSearch={this.handleSearch} 
+              submitSearch={this.submitSearch} 
+              searchTerm={this.state.searchTerm}
+            />
+          </div>
+
+          <div>
+            <HikeList hikeResults={hikeResults} />
+          </div>
+        
+        </div>
       )
-    } else if (this.state.page === 'login') {
+    } else if (page === 'login') {
       currentview = <Login />
     }
 
