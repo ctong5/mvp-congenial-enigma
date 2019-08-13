@@ -30,23 +30,22 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy ((email, password, done) => {
-    User.controllers.getUserByEmail(email, (err, user) => {
+  User.controllers.getUserByEmail(email, (err, user) => {
+    if (err) {
+      console.log("err in getUserByEmail", err);
+    }
+    User.controllers.comparePassword(password, user.password, (err, isMatch) => {
       if (err) {
-        console.log("err in getUserByEmail", err);
+        console.log("err in comparePassword");
       }
-      User.controllers.comparePassword(password, user.password, (err, isMatch) => {
-        if (err) {
-          console.log("err in comparePassword");
-        }
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, {message: 'Invalid password'});
-        }
-      })
+      if (isMatch) {
+        return done(null, user);
+      } else {
+        return done(null, false, {message: 'Invalid password'});
+      }
     })
-  }
-));
+  })
+}));
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -77,6 +76,23 @@ app.post('/signup', (req, res) => {
     res.send(`{errors: 'Passwords don't match'}`).status(500);
   }
 });
+
+// Endpoint to login
+app.post('/login', passport.authenticate('local'), (req, res) => {
+    res.send(req.user);
+  }
+);
+
+// Endpoint to get current user
+app.get('/user', (req, res) => {
+  res.send(req.user);
+})
+
+// Endpoint to logout
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.send(null);
+})
 
 app.listen(port, () => {
   console.log(`Express listening on port ${port}`);
