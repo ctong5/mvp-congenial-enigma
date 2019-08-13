@@ -59,3 +59,21 @@ body {
 .hikeName {
   background-color: transparent;
 }
+
+.dualSignUpLogin {
+  background-color: #19ECD9;
+}
+
+.signup {
+  padding: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupWelcomeForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
