@@ -7,6 +7,8 @@ module.exports = {
   // ===================
   // MONGOOSE
   // ===================
+
+  // WITHOUT HASHING ===========
   // createUser: (req, res) => {
   //   const email = req.body.email;
   //   const password = req.body.password1;
@@ -20,7 +22,7 @@ module.exports = {
   //   });
   // },
 
-  // attempt hashing
+ // WITH HASHING ===============
   createUser: (req, res) => {
     const email = req.body.email;
     const password = req.body.password1;
@@ -33,6 +35,7 @@ module.exports = {
           if (err) {
             console.log("error in createUser", err);
           } else {
+            res.sendStatus(201);
             console.log("newUser email and password saved")
           }
         });
