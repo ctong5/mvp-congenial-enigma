@@ -7,17 +7,37 @@ module.exports = {
   // ===================
   // MONGOOSE
   // ===================
+  // createUser: (req, res) => {
+  //   const email = req.body.email;
+  //   const password = req.body.password1;
+  //   const newUser = new User({ email, password });
+
+  //   newUser.save((err) => {
+  //     if (err) {
+  //       console.log("error in createUser", err);
+  //     } else {
+  //     }
+  //   });
+  // },
+
+  // attempt hashing
   createUser: (req, res) => {
     const email = req.body.email;
     const password = req.body.password1;
     const newUser = new User({ email, password });
 
-    newUser.save((err) => {
-      if (err) {
-        console.log("error in createUser", err);
-      } else {
-      }
-    });
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
+        newUser.password = hash;
+        newUser.save((err) => {
+          if (err) {
+            console.log("error in createUser", err);
+          } else {
+            console.log("newUser email and password saved")
+          }
+        });
+      })
+    })
   },
 
   getUserByEmail: (email, callback) => {
