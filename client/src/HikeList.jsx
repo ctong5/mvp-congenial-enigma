@@ -6,12 +6,12 @@ const HikeList = (props) => {
   let list;
   if (hikeResults) {
     list = (
-      <div>
+      <div className="hikelist">
         {hikeResults.map(hike => (
           <HikeItem 
             key={hike.id}
             name={hike.name}
-            imgSmallMed={hike.imgSmallMed}
+            imgMedium={hike.imgMedium}
             location={hike.location}
             stars={hike.stars}
             summary={hike.summary}

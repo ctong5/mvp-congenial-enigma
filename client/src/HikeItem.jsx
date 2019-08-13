@@ -3,7 +3,7 @@ import React from 'react';
 const HikeItem = (props) => {
   const {
     name,
-    imgSmallMed,
+    imgMedium,
     location,
     stars,
     summary,
@@ -14,7 +14,7 @@ const HikeItem = (props) => {
       <div className='flipCardInner'>
         
         <div className='flipCardFront'>
-          <div><img className='hikeImg' src={imgSmallMed} alt={`${name}`}/></div>
+          <div><img className='hikeImg' src={imgMedium} alt={`${name}`}/></div>
           <div className='hikeName'>{name}</div>
         </div>
 

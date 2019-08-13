@@ -47,6 +47,7 @@ body {
 /* style back */
 .flipCardBack {
   background-color: dodgerblue;
+  padding: 10px;
   color: white;
   transform: rotateY(180deg);
 }
@@ -76,4 +77,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.hikelist {
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
