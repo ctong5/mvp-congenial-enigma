@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import Signup from './Signup';
 import Login from './Login';
 import HikeList from './HikeList';
+import DualSignupLogin from './DualSignupLogin';
 
 class App extends React.Component {
   constructor(props) {
@@ -77,22 +78,21 @@ class App extends React.Component {
     })
   }
 
-  addUser(newUser) {
+  addUser(e, newuser) {
     alert('it works')
     e.preventDefault();
-    console.log(e.target.name)
-    // axios.post('/endpoint', {
-    //   firstname: 'newUser.firstname',
-    //   lastname: 'newUser.lastname',
-    //   email: 'newUser.email',
-    //   password: 'newUser.password',
-    // })
-    // .then((res)=> {
-    //   console.log(res);
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
+    axios.post('/signup', {
+      email: `${newuser.email}`,
+      password1: `${newuser.password1}`,
+      password2: `${newuser.password2}`,
+    })
+    .then((res)=> {
+      console.log(res);
+      // add new step after new user added
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
@@ -105,6 +105,7 @@ class App extends React.Component {
     let currentview;
     if (page === 'signup') {
       currentview = <Signup addUser={this.addUser}/>
+      // currentview = <DualSignupLogin addUser={this.addUser}/>
     } else if (page === 'home') {
       currentview = (
         <div>
@@ -125,14 +126,15 @@ class App extends React.Component {
       )
     } else if (page === 'login') {
       currentview = <Login />
+      // currentview = <DualSignupLogin addUser={this.addUser}/>
     }
 
     return(
       <div>
         <div>
           <NavBar 
-            handleClickSignup={this.handleClickSignup} 
             handleClickHome={this.handleClickHome} 
+            handleClickSignup={this.handleClickSignup} 
             handleClickLogin={this.handleClickLogin}
           />
         </div>
