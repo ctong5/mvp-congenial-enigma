@@ -22,6 +22,11 @@ class Signup extends React.Component {
   // function to pass state to handleSubmitSignup
   submitSignup(e) {
     this.props.addUser(e, this.state);
+    this.setState({
+      email: '',
+      password1: '',
+      password2: '',
+    })
   }
 
   render() {
@@ -30,9 +35,9 @@ class Signup extends React.Component {
         <div className="signupWelcomeForm">
           <div>Welcome, let's get signed up!</div>
           <form>
-            <input type="text" name="email" placeholder="email" onChange={(e) => this.handleChange(e)} /> 
-            <input type="text" name="password1" placeholder="password" onChange={(e) => this.handleChange(e)}/>
-            <input type="text" name="password2" placeholder="retype password" onChange={(e) => this.handleChange(e)}/>
+            <input type="text" name="email" placeholder="email" value={this.state.email}onChange={(e) => this.handleChange(e)} /> 
+            <input type="password" name="password1" placeholder="password" value={this.state.password1}onChange={(e) => this.handleChange(e)}/>
+            <input type="password" name="password2" placeholder="retype password" value={this.state.password2}onChange={(e) => this.handleChange(e)}/>
             {/*<input type="submit" value="Sign Up" onClick={this.props.handleSubmitSignup}/>*/}
             <button onClick={(e) => this.submitSignup(e)}>Sign Up</button>
           </form>
