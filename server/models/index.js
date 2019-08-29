@@ -35,8 +35,7 @@ module.exports = {
           if (err) {
             console.log("error in createUser", err);
           } else {
-            res.sendStatus(201);
-            console.log("newUser email and password saved")
+            res.status(201).send('newUser email and password saved')
           }
         });
       })
@@ -53,26 +52,15 @@ module.exports = {
   },
   
   comparePassword: (candidatePassword, hash, callback) => {
-    bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-      if(err) throw err;
-      callback(null, isMatch);
+    console.log(`comparing passwords: candidatePassword: ${candidatePassword} vs. hash: ${hash}`)
+    bcrypt.compare(candidatePassword, hash, function (err, isMatch) {
+      if (err) {
+        console.log("pw and hash do NOT match. Err: ", err);
+        callback(err);
+      } else {
+        console.log("pw and hash DO match. Confirmed isMatch: ", isMatch)
+        callback(null, isMatch);
+      }
     });
   },
-
-  // ===================
-  // POSTGRESQL
-  // ===================
-  // createUser: (req, res) => {
-  //   const query = `INSERT INTO users (email, password) VALUES ($1, $2)`;
-  //   console.log('req.body', req)
-  //   const values = [req.body.email, req.body.password];
-  //   db.query(query, values, (err) => {
-  //     if (err) {
-  //       console.log('err at models post:', err);
-  //     } else {
-  //       console.log('success at models post');
-  //       res.sendStatus(201);
-  //     }
-  //   });
-  // }
 }

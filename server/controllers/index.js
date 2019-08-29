@@ -13,7 +13,7 @@ module.exports = {
     models.getUserById(req, res)
   }, 
 
-  comparePassword: (req, res) => {
-    models.comparePassword(req, res)
+  comparePassword: (candidatePassword, hash, cb) => {
+    models.comparePassword(candidatePassword, hash, cb)
   }, 
 }
