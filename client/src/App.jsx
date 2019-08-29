@@ -6,6 +6,7 @@ import Signup from './Signup';
 import Login from './Login';
 import HikeList from './HikeList';
 import DualSignupLogin from './DualSignupLogin';
+import { timingSafeEqual } from 'crypto';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends React.Component {
       searchLat: 0,
       searchLon: 0,
       hikeResults: '',
+      currentUser: '',
     };
     this.handleClickSignup = this.handleClickSignup.bind(this);
     this.handleClickHome = this.handleClickHome.bind(this);
@@ -24,6 +26,7 @@ class App extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
     this.searchHikingProject = this.searchHikingProject.bind(this);
+    this.loginUser = this.loginUser.bind(this);
   }
 
   handleClickSignup() {
@@ -79,7 +82,7 @@ class App extends React.Component {
   }
 
   addUser(e, newuser) {
-    alert('it works')
+    console.log("adding new user")
     e.preventDefault();
     axios.post('/signup', {
       email: `${newuser.email}`,
@@ -89,6 +92,24 @@ class App extends React.Component {
     .then((res)=> {
       console.log(res);
       // add new step after new user added
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  loginUser(e, olduser) {
+    console.log("logging in user")
+    e.preventDefault();
+    axios.post('/login', {
+      email: `${olduser.email}`,
+      password: `${olduser.password}`,
+    })
+    .then((res)=> {
+      console.log(res);
+      // add new step after new user added
+      // set state to show page for logged in user
+      this.setState({ currentUser: res.data})
     })
     .catch((err) => {
       console.log(err);
@@ -125,7 +146,7 @@ class App extends React.Component {
         </div>
       )
     } else if (page === 'login') {
-      currentview = <Login />
+      currentview = <Login loginUser={this.loginUser}/>
       // currentview = <DualSignupLogin addUser={this.addUser}/>
     }
 
