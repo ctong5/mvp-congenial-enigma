@@ -19,7 +19,6 @@ const HikeList = (props) => {
         ))}
       </div>
     )
-    // list=<p>TSTING</p>
   } else {
     list=<div></div>
   }
