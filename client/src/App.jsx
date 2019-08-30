@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import Landing from './Landing';
+import SearchHikes from './SearchHikes';
+import Home from './Home';
 import NavBar from './NavBar';
 import Signup from './Signup';
 import Login from './Login';
 import HikeList from './HikeList';
-import DualSignupLogin from './DualSignupLogin';
-import { timingSafeEqual } from 'crypto';
+import { Router, Route, Switch, Link, NavLink, Redirect, withRouter } from 'react-router-dom';
+import history from './history';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,8 @@ class App extends React.Component {
       searchLon: 0,
       hikeResults: '',
       currentUser: '',
+      redirectTo: '',
+      loggedIn: false,
     };
     this.handleClickSignup = this.handleClickSignup.bind(this);
     this.handleClickHome = this.handleClickHome.bind(this);
@@ -107,12 +110,20 @@ class App extends React.Component {
     })
     .then((res)=> {
       console.log(res);
-      // add new step after new user added
-      // set state to show page for logged in user
-      this.setState({ currentUser: res.data})
+      if (res.data) {
+        console.log('successful login')
+        history.push('/searchHikes');
+        this.setState({ 
+          currentUser: res.data,
+          redirectTo: '/login',
+          loggedIn: true,
+        })
+      } else {
+        console.log('Login error')
+      }
     })
     .catch((err) => {
-      console.log(err);
+      console.log('Login server error: ', err);
     });
   }
 
@@ -121,21 +132,21 @@ class App extends React.Component {
       page,
       searchTerm,
       hikeResults,
+      currentUser,
     } = this.state;
 
     let currentview;
     if (page === 'signup') {
       currentview = <Signup addUser={this.addUser}/>
-      // currentview = <DualSignupLogin addUser={this.addUser}/>
     } else if (page === 'home') {
       currentview = (
         <div>
 
           <div>
-            <Landing 
+            <SearchHikes 
               handleSearch={this.handleSearch} 
               submitSearch={this.submitSearch} 
-              searchTerm={this.state.searchTerm}
+              searchTerm={searchTerm}
             />
           </div>
 
@@ -147,22 +158,72 @@ class App extends React.Component {
       )
     } else if (page === 'login') {
       currentview = <Login loginUser={this.loginUser}/>
-      // currentview = <DualSignupLogin addUser={this.addUser}/>
+    }
+
+    
+    let isLoggedin;
+    if (this.state.currentUser) {
+      isLoggedin = true;
+    } else {
+      isLoggedin = false;
     }
 
     return(
-      <div>
-        <div>
-          <NavBar 
-            handleClickHome={this.handleClickHome} 
-            handleClickSignup={this.handleClickSignup} 
-            handleClickLogin={this.handleClickLogin}
-          />
-        </div>
+      // <div>
+      //   <div>
+      //     <NavBar 
+      //       handleClickHome={this.handleClickHome} 
+      //       handleClickSignup={this.handleClickSignup} 
+      //       handleClickLogin={this.handleClickLogin}
+      //     />
+      //   </div>
   
-        <div>
-          {currentview}
-        </div>
+      //   <div>
+      //     {currentview}
+      //   </div>
+      // </div>
+
+      <div>
+        <Switch>
+          <Router history={history}>
+            {
+              isLoggedin 
+              ? <Link to="/signout">Signout</Link> 
+              : <div>
+                  <Link to="/signup">Signup</Link>
+                  <Link to="/login">Login</Link>
+                </div>
+            }
+
+
+            <Route
+              exact path = '/'
+              render={() => <Home />}
+            />
+
+            <Route 
+              path = '/searchHikes' 
+              render={() => <SearchHikes
+                handleSearch={this.handleSearch} 
+                submitSearch={this.submitSearch} 
+                searchTerm={searchTerm}
+                hikeResults={hikeResults}
+                currentUser={currentUser}
+              />}
+            />
+
+            <Route 
+              path = '/login' 
+              render={() => <Login loginUser={this.loginUser} />}
+            />
+
+            <Route 
+              path = '/signup' 
+              render={() => <Signup addUser={this.addUser} />}
+            />
+
+          </Router>
+        </Switch>
       </div>
     );
   }
