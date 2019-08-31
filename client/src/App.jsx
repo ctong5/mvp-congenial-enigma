@@ -169,32 +169,17 @@ class App extends React.Component {
     }
 
     return(
-      // <div>
-      //   <div>
-      //     <NavBar 
-      //       handleClickHome={this.handleClickHome} 
-      //       handleClickSignup={this.handleClickSignup} 
-      //       handleClickLogin={this.handleClickLogin}
-      //     />
-      //   </div>
-  
-      //   <div>
-      //     {currentview}
-      //   </div>
-      // </div>
-
       <div>
         <Switch>
           <Router history={history}>
             {
               isLoggedin 
               ? <Link to="/signout">Signout</Link> 
-              : <div>
+              : <div className>
                   <Link to="/signup">Signup</Link>
                   <Link to="/login">Login</Link>
                 </div>
             }
-
 
             <Route
               exact path = '/'
