@@ -175,7 +175,10 @@ class App extends React.Component {
           <Router history={history}>
             {
               isLoggedin 
-              ? <NavLink className="linkbtn" activeStyle={{ color: 'red' }} to="/signout">Signout</NavLink> 
+              ? <div>
+                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} to="/signout">Signout</NavLink>
+                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} exact to='/'>Home</NavLink>
+                </div>
               : <div>
                   <NavLink className="linkbtn" activeStyle={{ color: 'red' }} exact to='/'>Home</NavLink>
                   <NavLink className="linkbtn" activeStyle={{ color: 'red' }} to="/signup">Signup</NavLink>
