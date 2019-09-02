@@ -31,6 +31,7 @@ class App extends React.Component {
     this.submitSearch = this.submitSearch.bind(this);
     this.searchHikingProject = this.searchHikingProject.bind(this);
     this.loginUser = this.loginUser.bind(this);
+    this.handleSignout = this.handleSignout.bind(this);
   }
 
   handleClickSignup() {
@@ -128,6 +129,15 @@ class App extends React.Component {
     });
   }
 
+  handleSignout(e) {
+    e.preventDefault();
+    console.log("sign me out")
+    this.setState({ 
+      currentUser: '',
+      loggedIn: false
+    }, () => history.push('/'));
+  }
+
   render() {
     const{
       page,
@@ -160,7 +170,6 @@ class App extends React.Component {
     } else if (page === 'login') {
       currentview = <Login loginUser={this.loginUser}/>
     }
-
     
     let isLoggedin;
     if (this.state.currentUser) {
@@ -176,8 +185,8 @@ class App extends React.Component {
             {
               isLoggedin 
               ? <div>
-                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} to="/signout">Signout</NavLink>
                   <NavLink className="linkbtn" activeStyle={{ color: 'red' }} exact to='/'>Home</NavLink>
+                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
                 </div>
               : <div>
                   <NavLink className="linkbtn" activeStyle={{ color: 'red' }} exact to='/'>Home</NavLink>
