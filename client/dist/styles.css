@@ -141,8 +141,7 @@ body {
 
 .navbar {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 header {
@@ -157,4 +156,10 @@ header {
 
 .imgLogoContainer {
   width: 140px;
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
