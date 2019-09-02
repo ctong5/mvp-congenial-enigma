@@ -184,15 +184,15 @@ class App extends React.Component {
               isLoggedin 
               ? <header>
                     <nav className="navbar">
-                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
-                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>Home</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
                   </nav>
                 </header>
               : <header>
                   <nav className="navbar">
-                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
-                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to="/signup">Signup</NavLink>
-                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to='/login'>Login</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>Home</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to="/signup">Signup</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to='/login'>Login</NavLink>
                   </nav>
                 </header>
             }

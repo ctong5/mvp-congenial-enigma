@@ -118,7 +118,7 @@ body {
   cursor: pointer;
   display: block;
   position: relative;
-  background-color: #fcad26;
+  /* background-color: #fcad26; */
   font-size: 16px;
   font-weight: 300px;
   color: white;
@@ -134,7 +134,9 @@ body {
 }
 
 .linkbtn:hover {
-  background-color: #0DB5D6;
+  /* background-color: #0DB5D6; */
+  text-decoration-line: underline;
+  font-weight: bold;
 }
 
 .navbar {
@@ -145,4 +147,5 @@ body {
 
 header {
   background: white;
+  padding: 30px;
 }
