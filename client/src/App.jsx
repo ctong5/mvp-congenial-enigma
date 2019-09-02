@@ -177,6 +177,7 @@ class App extends React.Component {
               isLoggedin 
               ? <LinkButton className="linkbtn" to="/signout">Signout</LinkButton> 
               : <div>
+                  <LinkButton className="linkbtn" to='/'>Home</LinkButton>
                   <LinkButton className="linkbtn" to="/signup">Signup</LinkButton>
                   <LinkButton className="linkbtn" to='/login'>Login</LinkButton>
                 </div>
