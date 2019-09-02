@@ -184,8 +184,12 @@ class App extends React.Component {
               isLoggedin 
               ? <header>
                     <nav className="navbar">
-                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>Home</NavLink>
-                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>
+                      <span>Home</span>
+                    </NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} onClick={this.handleSignout} to="/signout">
+                      <span>Signout</span>
+                    </NavLink>
                   </nav>
                 </header>
               : <header>
@@ -194,9 +198,15 @@ class App extends React.Component {
                       <NavLink exact to='/'><img className='imgLogo' src='trekit-logo-full.png' alt='trekit logo'></img></NavLink>
                     </div>
                     <div className='linkContainer'>
-                      <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>Home</NavLink>
-                      <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to="/signup">Signup</NavLink>
-                      <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to='/login'>Login</NavLink>
+                      <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>
+                        <span>Home</span>
+                      </NavLink>
+                      <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to="/signup">
+                        <span>Signup</span>
+                      </NavLink>
+                      <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to='/login'>
+                        <span>Login</span>
+                      </NavLink>
                     </div>
                   </nav>
                 </header>
