@@ -8,6 +8,7 @@ import Login from './Login';
 import HikeList from './HikeList';
 import { Router, Route, Switch, Link, NavLink, Redirect, withRouter } from 'react-router-dom';
 import history from './history';
+import LinkButton from './LinkButton';
 
 class App extends React.Component {
   constructor(props) {
@@ -174,10 +175,10 @@ class App extends React.Component {
           <Router history={history}>
             {
               isLoggedin 
-              ? <Link to="/signout">Signout</Link> 
+              ? <LinkButton className="linkbtn" to="/signout">Signout</LinkButton> 
               : <div>
-                  <Link to="/signup">Signup</Link>
-                  <Link to="/login">Login</Link>
+                  <LinkButton className="linkbtn" to="/signup">Signup</LinkButton>
+                  <LinkButton className="linkbtn" to='/login'>Login</LinkButton>
                 </div>
             }
 

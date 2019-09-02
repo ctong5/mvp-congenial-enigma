@@ -3,7 +3,7 @@ body {
   background-image: url(mountain-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 20% 20%;
+  /* background-position: 20% 20%; */
 }
 
 .flipCard {
@@ -105,4 +105,27 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.linkbtn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  background-color: #fcad26;
+  font-size: 16px;
+  font-weight: 300px;
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  width: 150px;
+  /* margin: 0 auto; */
+  /* border-radius: 20px; */
+  /* box-shadow: 3px 6px #efa424; */
+}
+
+.linkbtn:hover {
+  background-color: #0DB5D6;
 }
