@@ -113,7 +113,6 @@ class App extends React.Component {
     .then((res)=> {
       console.log(res);
       if (res.data) {
-        console.log('successful login')
         history.push('/searchHikes');
         this.setState({ 
           currentUser: res.data,
@@ -131,7 +130,6 @@ class App extends React.Component {
 
   handleSignout(e) {
     e.preventDefault();
-    console.log("sign me out")
     this.setState({ 
       currentUser: '',
       loggedIn: false
@@ -185,13 +183,13 @@ class App extends React.Component {
             {
               isLoggedin 
               ? <div>
-                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} exact to='/'>Home</NavLink>
-                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
+                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
+                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
                 </div>
               : <div>
-                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} exact to='/'>Home</NavLink>
-                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} to="/signup">Signup</NavLink>
-                  <NavLink className="linkbtn" activeStyle={{ color: 'red' }} to='/login'>Login</NavLink>
+                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
+                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to="/signup">Signup</NavLink>
+                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to='/login'>Login</NavLink>
                 </div>
             }
 
