@@ -118,7 +118,6 @@ body {
   cursor: pointer;
   display: block;
   position: relative;
-  /* background-color: #fcad26; */
   font-size: 16px;
   font-weight: 300px;
   color: white;
@@ -130,13 +129,9 @@ body {
   width: 20px;
   display: flex;
   justify-content: center;
-  /* margin: 0 auto; */
-  /* border-radius: 20px; */
-  /* box-shadow: 3px 6px #efa424; */
 }
 
 .linkbtn:hover {
-  /* background-color: #0DB5D6; */
   text-decoration-line: underline;
   font-weight: bold;
 }
