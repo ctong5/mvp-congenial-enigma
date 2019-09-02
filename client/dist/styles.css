@@ -113,6 +113,7 @@ body {
 }
 
 .linkbtn {
+  text-decoration: none;
   outline: none;
   border: none;
   cursor: pointer;
@@ -132,7 +133,7 @@ body {
 }
 
 .linkbtn:hover {
-  text-decoration-line: underline;
+  text-decoration: underline;
   font-weight: bold;
 }
 
