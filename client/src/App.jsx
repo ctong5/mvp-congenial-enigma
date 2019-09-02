@@ -190,6 +190,9 @@ class App extends React.Component {
                 </header>
               : <header>
                   <nav className="navbar">
+                    <div className='imgLogoContainer'>
+                      <NavLink exact to='/'><img className='imgLogo' src='trekit-logo-full.png' alt='trekit logo'></img></NavLink>
+                    </div>
                     <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>Home</NavLink>
                     <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to="/signup">Signup</NavLink>
                     <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} to='/login'>Login</NavLink>

@@ -149,3 +149,12 @@ header {
   background: white;
   padding: 30px;
 }
+
+.imgLogo {
+  max-width:100%;
+  height:auto;
+}
+
+.imgLogoContainer {
+  width: 140px;
+}
