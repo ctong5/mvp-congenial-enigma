@@ -182,15 +182,19 @@ class App extends React.Component {
           <Router history={history}>
             {
               isLoggedin 
-              ? <div>
-                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
-                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
-                </div>
-              : <div>
-                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
-                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to="/signup">Signup</NavLink>
-                  <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to='/login'>Login</NavLink>
-                </div>
+              ? <header>
+                    <nav className="navbar">
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} onClick={this.handleSignout} to="/signout">Signout</NavLink>
+                  </nav>
+                </header>
+              : <header>
+                  <nav className="navbar">
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} exact to='/'>Home</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to="/signup">Signup</NavLink>
+                    <NavLink className="linkbtn" style={{ textDecoration: 'none', color: 'gray' }} activeStyle={{ color: 'white' }} to='/login'>Login</NavLink>
+                  </nav>
+                </header>
             }
 
             <Route
