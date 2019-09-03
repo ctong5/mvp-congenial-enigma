@@ -219,7 +219,7 @@ class App extends React.Component {
               />
             </div>
 
-            <div className='searchContainer'>
+            <div className='searchTarget'>
               <Route 
                 path = '/searchHikes' 
                 render={() => <SearchHikes
@@ -232,10 +232,12 @@ class App extends React.Component {
               />
             </div>
 
-            <Route 
-              path = '/login' 
-              render={() => <Login loginUser={this.loginUser} />}
-            />
+            <div className='loginTarget'>
+              <Route 
+                path = '/login' 
+                render={() => <Login loginUser={this.loginUser} />}
+              />
+            </div>
 
             <Route 
               path = '/signup' 

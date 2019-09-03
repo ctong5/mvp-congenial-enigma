@@ -182,6 +182,13 @@ div.homeContainer {
   color: white;
 }
 
+.textContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .title {
   font-size: 3em;
 }
@@ -190,16 +197,34 @@ div.homeContainer {
   font-size: 2em;
 }
 
-.textContainer {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .appContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
 
+.loginContainer {
+  border: 1px red solid;
+  background: yellow;
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.loginGreeting {
+  text-align: center;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
