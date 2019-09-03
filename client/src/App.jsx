@@ -177,7 +177,7 @@ class App extends React.Component {
     }
 
     return(
-      <div>
+      <div className='appContainer'>
         <Switch>
           <Router history={history}>
             {
@@ -212,21 +212,25 @@ class App extends React.Component {
                 </header>
             }
 
-            <Route
-              exact path = '/'
-              render={() => <Home />}
-            />
+            <div className='homeTarget'>
+              <Route
+                exact path = '/'
+                render={() => <Home />}
+              />
+            </div>
 
-            <Route 
-              path = '/searchHikes' 
-              render={() => <SearchHikes
-                handleSearch={this.handleSearch} 
-                submitSearch={this.submitSearch} 
-                searchTerm={searchTerm}
-                hikeResults={hikeResults}
-                currentUser={currentUser}
-              />}
-            />
+            <div className='searchContainer'>
+              <Route 
+                path = '/searchHikes' 
+                render={() => <SearchHikes
+                  handleSearch={this.handleSearch} 
+                  submitSearch={this.submitSearch} 
+                  searchTerm={searchTerm}
+                  hikeResults={hikeResults}
+                  currentUser={currentUser}
+                />}
+              />
+            </div>
 
             <Route 
               path = '/login' 

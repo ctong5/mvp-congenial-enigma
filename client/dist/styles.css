@@ -8,7 +8,11 @@ body {
   background-image: url(mountain-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-position: 20% 20%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .flipCard {
@@ -160,4 +164,42 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+div.homeContainer {
+  flex-direction: column;
+  justify-content: center;
+  width: 800px;
+	height: 200px;
+	margin: auto;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+  right: 0;
+  display: flex;
+  background-color: 	rgb(169,169,169, 0.65);
+  color: white;
+}
+
+.title {
+  font-size: 3em;
+}
+
+.subtitle {
+  font-size: 2em;
+}
+
+.textContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
