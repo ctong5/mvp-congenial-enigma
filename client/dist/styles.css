@@ -5,9 +5,9 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-image: url(mountain-background.jpg);
+  /* background-image: url(mountain-background.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -148,7 +148,7 @@ body {
 
 header {
   background: white;
-  padding: 30px;
+  padding: 20px;
 }
 
 .imgLogo {
@@ -201,6 +201,15 @@ div.homeContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.heroImage {
+  background-image: url(mountain-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 550px;
+  background-position: 5% 20%;
+  position: relative;
 }
 
 /* LOGIN */
@@ -285,7 +294,7 @@ form.loginForm input:focus {
   right: 0;
   left: 0;
   width: 400px;
-  height: 300px;
+  height: 375px;
   display: flex;
   flex-direction: column;
   justify-content: center;

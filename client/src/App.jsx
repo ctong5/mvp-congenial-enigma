@@ -157,7 +157,9 @@ class App extends React.Component {
           <Router history={history}>
             {
               isLoggedin 
-              ? <header>
+              ? 
+              <div>
+                <header>
                   <nav className="navbar">
                     <div className='imgLogoContainer'>
                       <NavLink exact to='/'><img className='imgLogo' src='trekit-logo-full.png' alt='trekit logo'></img></NavLink>
@@ -169,7 +171,11 @@ class App extends React.Component {
                     </div>
                   </nav>
                 </header>
-              : <header>
+                <div className='heroImage'></div>
+              </div>
+              : 
+              <div>
+                <header>
                   <nav className='navbar'>
                     <div className='imgLogoContainer'>
                       <NavLink exact to='/'><img className='imgLogo' src='trekit-logo-full.png' alt='trekit logo'></img></NavLink>
@@ -187,6 +193,8 @@ class App extends React.Component {
                     </div>
                   </nav>
                 </header>
+                <div className='heroImage'></div>
+              </div>
             }
 
             <div className='homeTarget'>
