@@ -16,7 +16,7 @@ const HikeItem = (props) => {
 
           <div className='hikeImgName'>
             <img className='hikeImg' src={imgMedium} alt={`${name}`}/>
-            <div className='hikeName'>{name}</div>
+            <div className='hikeName'><span>{name}</span></div>
           </div>
 
           <div className='hikeDetails'>
