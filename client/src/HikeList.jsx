@@ -39,7 +39,7 @@ const HikeList = (props) => {
 
   return (
     <div>
-      <div>
+      <div className='hikelistSummary'>
         {summary}
       </div>
 
