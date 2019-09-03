@@ -183,13 +183,15 @@ class App extends React.Component {
             {
               isLoggedin 
               ? <header>
-                    <nav className="navbar">
-                    <NavLink className="linkbtn" style={{ color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} exact to='/'>
-                      <span>Home</span>
-                    </NavLink>
-                    <NavLink className="linkbtn" style={{ color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} onClick={this.handleSignout} to="/signout">
-                      <span>Signout</span>
-                    </NavLink>
+                  <nav className="navbar">
+                    <div className='imgLogoContainer'>
+                      <NavLink exact to='/'><img className='imgLogo' src='trekit-logo-full.png' alt='trekit logo'></img></NavLink>
+                    </div>
+                    <div className='linkContainer'>
+                      <NavLink className="linkbtn" style={{ color: 'gray' }} activeStyle={{ color: '#0DB5D6' }} onClick={this.handleSignout} to="/signout">
+                        <span>Signout</span>
+                      </NavLink>
+                    </div>
                   </nav>
                 </header>
               : <header>
