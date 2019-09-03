@@ -66,6 +66,12 @@ class App extends React.Component {
       this.setState ({
         hikeResults: responseHiking.data.trails,
       });
+      const element = document.getElementById('hikelistSummary');
+      console.log(element);
+      element.scrollIntoView({
+        behavior: 'smooth', 
+        block: "start", 
+        inline: "nearest"});
     })
   }
 
@@ -174,7 +180,7 @@ class App extends React.Component {
                     </div>
                   </nav>
                 </header>
-                <div className='heroImage'></div>
+                <div className='heroImage' id='heroImage'></div>
               </div>
               : 
               <div>

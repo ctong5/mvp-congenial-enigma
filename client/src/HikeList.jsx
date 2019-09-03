@@ -39,7 +39,7 @@ const HikeList = (props) => {
 
   return (
     <div>
-      <div className='hikelistSummary'>
+      <div className='hikelistSummary' id='hikelistSummary'>
         {summary}
       </div>
 
