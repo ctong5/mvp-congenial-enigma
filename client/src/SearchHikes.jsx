@@ -10,9 +10,10 @@ const SearchHikes = (props) => {
     currentUser,
   } = props;
 
+  let currentUserHandle = currentUser.split('@')[0];
   return(
     <div>
-      <h2>Welcome {currentUser}!</h2>
+      <h2>Welcome {currentUserHandle}!</h2>
       <h4>It's a beautiful day. Find your next outdoor adventure...</h4>
       <form>
         <input type="text" placeholder="Where to next?" value={searchTerm} onChange={(e)=>handleSearch(e)}/>
