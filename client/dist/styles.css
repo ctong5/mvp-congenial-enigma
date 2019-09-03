@@ -245,7 +245,6 @@ div.homeContainer {
 form.loginForm * {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
-  border: none;
   height: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -255,10 +254,12 @@ form.loginForm * {
 }
 
 form.loginForm input {
+  border: 1px gray solid;
   padding-left: 10px;
 }
 
 form.loginForm button {
+  border: none;
   background-color: #fcad26;
   box-shadow: 3px 6px 10px gray;
 }
@@ -266,4 +267,9 @@ form.loginForm button {
 form.loginForm button:hover {
   background-color: #efa424;
   box-shadow: 3px 3px 5px gray;
+}
+
+form.loginForm input:focus {
+  outline: none;
+  border: 1px #0DB5D6 solid;
 }
