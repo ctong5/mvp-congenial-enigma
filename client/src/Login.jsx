@@ -26,11 +26,11 @@ class Login extends React.Component {
     return (
       <div className='loginContainer'>
         <div className='loginGreetingForm'>
-          <div className='loginGreeting'>Welcome back! Please login</div>
+          <div className='loginGreeting'>WELCOME BACK! <br/> PLEASE LOGIN</div>
           <form className='loginForm'>
             <input type="text" name="email" placeholder="email" onChange={(e) => this.handleChange(e)} /> 
             <input type="password" name="password" placeholder="password" onChange={(e) => this.handleChange(e)}/>
-            <button onClick={(e) => this.submitLogin(e)}>Sign Up</button>
+            <button onClick={(e) => this.submitLogin(e)}>SIGN UP</button>
           </form>
         </div>
       </div>
