@@ -2,7 +2,21 @@ import React from 'react';
 import HikeItem from './HikeItem';
 
 const HikeList = (props) => {
-  const { hikeResults } = props;
+  const {
+    hikeResults,
+    searchTerm,
+    prevSearchTerm,
+  } = props;
+
+  let summary;
+  if (hikeResults.length) {
+    summary = (
+      <div>{hikeResults.length} SEARCH RESULTS FOR {prevSearchTerm}</div>
+    )
+  } else {
+    summary = null;
+  }
+
   let list;
   if (hikeResults) {
     list = (
@@ -22,9 +36,16 @@ const HikeList = (props) => {
   } else {
     list=<div></div>
   }
+
   return (
     <div>
-    {list}
+      <div>
+        {summary}
+      </div>
+
+      <div>
+        {list}
+      </div>
     </div>
   )
 

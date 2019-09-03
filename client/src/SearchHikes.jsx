@@ -5,6 +5,7 @@ const SearchHikes = (props) => {
   const {
     handleSearch,
     submitSearch,
+    prevSearchTerm,
     searchTerm,
     hikeResults,
     currentUser,
@@ -24,7 +25,7 @@ const SearchHikes = (props) => {
 
       <div className='hikeContainer'>
         <div>
-          <HikeList hikeResults={hikeResults} />
+          <HikeList hikeResults={hikeResults} searchTerm={searchTerm} prevSearchTerm={prevSearchTerm} />
         </div>
       </div>
     </div>

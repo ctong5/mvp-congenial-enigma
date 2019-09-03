@@ -15,6 +15,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       page: 'home',
+      prevSearchTerm: '',
       searchTerm: '',
       searchLat: 0,
       searchLon: 0,
@@ -77,6 +78,7 @@ class App extends React.Component {
       this.setState ({
         searchLon: responseMapbox.data.features[0].geometry.coordinates[0],
         searchLat: responseMapbox.data.features[0].geometry.coordinates[1],
+        prevSearchTerm: this.state.searchTerm,
         searchTerm: '',
       });
     })
@@ -140,6 +142,7 @@ class App extends React.Component {
     const{
       page,
       searchTerm,
+      prevSearchTerm,
       hikeResults,
       currentUser,
     } = this.state;
@@ -210,6 +213,7 @@ class App extends React.Component {
                 render={() => <SearchHikes
                   handleSearch={this.handleSearch} 
                   submitSearch={this.submitSearch} 
+                  prevSearchTerm={prevSearchTerm}
                   searchTerm={searchTerm}
                   hikeResults={hikeResults}
                   currentUser={currentUser}
