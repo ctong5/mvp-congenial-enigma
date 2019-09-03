@@ -10,21 +10,26 @@ const HikeItem = (props) => {
   } = props;
 
   return (
-    <div className='flipCard'>
-      <div className='flipCardInner'>
+    <div className='hikeitemContainer'>
         
-        <div className='flipCardFront'>
-          <div><img className='hikeImg' src={imgMedium} alt={`${name}`}/></div>
-          <div className='hikeName'>{name}</div>
+        <div className='item'>
+
+          <div className='hikeImgName'>
+            <img className='hikeImg' src={imgMedium} alt={`${name}`}/>
+            <div className='hikeName'>{name}</div>
+          </div>
+
+          <div className='hikeDetails'>
+            <div>{location}</div>
+            <br/>
+            <div>Rating: {stars}</div>
+            <br/>
+            <div>{summary}</div>
+          </div>
+
         </div>
 
-        <div className='flipCardBack'>
-          <div>{location}</div>
-          <div>Rating: {stars}</div>
-          <div>{summary}</div>
-        </div>
 
-      </div>
     </div>
   )
 }

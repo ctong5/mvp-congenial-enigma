@@ -15,84 +15,7 @@ body {
   text-transform: uppercase;
 }
 
-.flipCard {
-  background-color: transparent;
-  width: 300px;
-  height: 230px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; 
-  margin: 30px;
-}
-
-/* Container to position the front and back of card */
-.flipCardInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-/* horizontal flip on hover */
-.flipCard:hover .flipCardInner {
-  transform: rotateY(180deg);
-}
-
-/* position the front and back */
-.flipCardFront, .flipCardBack {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 10px;
-}
-
-/* style front */
-.flipCardFront {
-  background-color: #bbb;
-  color: black;
-  font-weight: bold;
-}
-
-/* style back */
-.flipCardBack {
-  background-color: dodgerblue;
-  padding: 10px;
-  color: white;
-  transform: rotateY(180deg);
-}
-
-.hikeImg {
-  width:300px; 
-  height:200px;
-}
-
-.hikeName {
-  background-color: transparent;
-}
-
-.dualSignUpLogin {
-  background-color: #19ECD9;
-}
-
-.signup {
-  padding: 100px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.signupWelcomeForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
+/* Hike List */
 .hikelist {
   margin: 0 auto;
   padding: 60px;
@@ -102,20 +25,95 @@ body {
   justify-content: space-between
 }
 
-.login {
-  padding: 100px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Hike List Item */
+div.item {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 200px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
-.loginWelcomeForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+div.item * {
+  /* box-sizing: border-box; */
 }
 
+div.item img {
+  max-width: 100%;
+  vertical-align: top;
+  height: 210px;
+}
+
+div.item .hikeDetails {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 11px;
+  color: rgb(100,100,100);
+  width: 100%;
+  height: auto;
+  background: rgba(255,255,255, 0.7);
+}
+
+div.item a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+div.item {
+  /* background-color: gray; */
+  background-color: #34495e;
+}
+
+div.item .hikeDetails {
+  color: rgb(100,100,100);
+  /* color: white; */
+  /* background-color: #34495e; */
+}
+
+div.item:hover img {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item * {
+  transition: all 0.5s ease-in-out;
+}
+
+div.item:hover .hikeDetails {
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 300ms 100ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+div.item .hikeDetails {
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 300ms 100ms ;
+}
+
+.hikeImg {
+  width:300px; 
+  overflow: hidden;
+}
+
+.hikeName {
+  background-color:	rgba(255,255,255, 0.7);
+  color: rgb(100,100,100);
+  height: 50px;
+  text-align: center;
+}
+
+.hikeDetails {
+  padding: 10px;
+}
+
+/* Router Links */
 .linkbtn {
   text-decoration: none;
   outline: none;
