@@ -203,6 +203,7 @@ div.homeContainer {
   justify-content: space-between;
 }
 
+/* LOGIN */
 .loginContainer {
   /* border: 1px red solid; */
   background-color:	rgba(255,255,255, 0.7);
@@ -270,6 +271,78 @@ form.loginForm button:hover {
 }
 
 form.loginForm input:focus {
+  outline: none;
+  border: 1px #0DB5D6 solid;
+}
+
+/* SIGNUP */
+.signupContainer {
+  /* border: 1px red solid; */
+  background-color:	rgba(255,255,255, 0.7);
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.signupGreetingForm {
+  /* border: 2px green solid; */
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.signupGreeting {
+  text-align: center;
+  /* border: 1px orange dotted; */
+  font-weight: bold;
+  color: rgb(100,100,100);
+  font-size: 1.5em;
+}
+
+.signupForm {
+  /* border: 1px blue dotted; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form.signupForm * {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 4px;
+}
+
+form.signupForm input {
+  border: 1px gray solid;
+  padding-left: 10px;
+}
+
+form.signupForm button {
+  border: none;
+  background-color: #fcad26;
+  box-shadow: 3px 6px 10px gray;
+}
+
+form.signupForm button:hover {
+  background-color: #efa424;
+  box-shadow: 3px 3px 5px gray;
+}
+
+form.signupForm input:focus {
   outline: none;
   border: 1px #0DB5D6 solid;
 }

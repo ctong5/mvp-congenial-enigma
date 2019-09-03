@@ -241,10 +241,12 @@ class App extends React.Component {
               />
             </div>
 
-            <Route 
-              path = '/signup' 
-              render={() => <Signup addUser={this.addUser} />}
-            />
+            <div className='signupTarget'> 
+              <Route 
+                path = '/signup' 
+                render={() => <Signup addUser={this.addUser} />}
+              />
+            </div>
 
           </Router>
         </Switch>
