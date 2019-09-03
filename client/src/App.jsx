@@ -143,8 +143,13 @@ class App extends React.Component {
   handleSignout(e) {
     e.preventDefault();
     this.setState({ 
+      prevSearchTerm: '',
+      searchTerm: '',
+      searchLat: 0,
+      searchLon: 0,
+      hikeResults: '',
       currentUser: '',
-      loggedIn: false
+      loggedIn: false,
     }, () => history.push('/'));
   }
 
