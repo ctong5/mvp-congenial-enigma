@@ -34,6 +34,11 @@ body {
 }
 
 /* Hike List Item */
+div.hikeitemContainer {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 div.item {
   position: relative;
   float: left;

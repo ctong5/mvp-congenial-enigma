@@ -105,6 +105,10 @@ class App extends React.Component {
     .then((res)=> {
       console.log(res);
       // add new step after new user added
+      this.setState({
+        currentUser: newuser.email,
+      })
+      history.push('/searchHikes');
     })
     .catch((err) => {
       console.log(err);
