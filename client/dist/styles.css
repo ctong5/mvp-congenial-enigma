@@ -346,3 +346,74 @@ form.signupForm input:focus {
   outline: none;
   border: 1px #0DB5D6 solid;
 }
+
+/* SEARCH */
+.searchContainer {
+  background-color:	rgba(255,255,255, 0.7);
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 700px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.searchGreetingForm {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.searchGreeting {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(100,100,100);
+  font-size: 1.5em;
+}
+
+.searchForm {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+form.searchForm * {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+form.searchForm input {
+  border: 1px gray solid;
+  padding-left: 10px;
+  width: 450px;
+}
+
+form.searchForm button {
+  border: none;
+  width: 100px;
+  background-color: #fcad26;
+  box-shadow: 3px 6px 10px gray;
+}
+
+form.searchForm button:hover {
+  background-color: #efa424;
+  box-shadow: 3px 3px 5px gray;
+}
+
+form.searchForm input:focus {
+  outline: none;
+  border: 1px #0DB5D6 solid;
+}

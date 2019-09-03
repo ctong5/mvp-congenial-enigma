@@ -11,13 +11,13 @@ const SearchHikes = (props) => {
   } = props;
 
   let currentUserHandle = currentUser.split('@')[0];
+
   return(
-    <div>
-      <h2>Welcome {currentUserHandle}!</h2>
-      <h4>It's a beautiful day. Find your next outdoor adventure...</h4>
-      <form>
+    <div className='searchContainer'>
+      <div className='searchGreeting'>WELCOME {currentUserHandle}!<br/>FIND YOUR NEXT OUTDOOR ADVENTURE</div>
+      <form className='searchForm'>
         <input type="text" placeholder="Where to next?" value={searchTerm} onChange={(e)=>handleSearch(e)}/>
-        <input type="submit" value="Submit" onClick={(e, searchTerm)=>submitSearch(e, searchTerm)}/>
+        <button type="submit" onClick={(e, searchTerm)=>submitSearch(e, searchTerm)}>SUBMIT</button>
       </form>
 
       <div>
