@@ -32,7 +32,7 @@ class Signup extends React.Component {
     return (
       <div className='signupContainer'>
         <div className='signupGreetingForm'>
-          <div className='signupGreeting'>WELCOME! <br/> LET'S GET SIGNED UP!</div>
+          <div className='signupGreeting'>WELCOME! <br/> LET'S GET SIGNED UP</div>
           <form className='signupForm'>
             <input type="text" name="email" placeholder="email" value={this.state.email} onChange={(e) => this.handleChange(e)} /> 
             <input type="password" name="password1" placeholder="password" value={this.state.password1}onChange={(e) => this.handleChange(e)}/>
