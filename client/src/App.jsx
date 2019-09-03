@@ -143,31 +143,6 @@ class App extends React.Component {
       hikeResults,
       currentUser,
     } = this.state;
-
-    let currentview;
-    if (page === 'signup') {
-      currentview = <Signup addUser={this.addUser}/>
-    } else if (page === 'home') {
-      currentview = (
-        <div>
-
-          <div>
-            <SearchHikes 
-              handleSearch={this.handleSearch} 
-              submitSearch={this.submitSearch} 
-              searchTerm={searchTerm}
-            />
-          </div>
-
-          <div>
-            <HikeList hikeResults={hikeResults} />
-          </div>
-        
-        </div>
-      )
-    } else if (page === 'login') {
-      currentview = <Login loginUser={this.loginUser}/>
-    }
     
     let isLoggedin;
     if (this.state.currentUser) {
