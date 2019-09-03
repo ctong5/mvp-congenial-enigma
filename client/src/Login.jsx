@@ -30,7 +30,7 @@ class Login extends React.Component {
           <form className='loginForm'>
             <input type="text" name="email" placeholder="email" onChange={(e) => this.handleChange(e)} /> 
             <input type="password" name="password" placeholder="password" onChange={(e) => this.handleChange(e)}/>
-            <button onClick={(e) => this.submitLogin(e)}>SIGN UP</button>
+            <button onClick={(e) => this.submitLogin(e)}>LOGIN</button>
           </form>
         </div>
       </div>
