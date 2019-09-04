@@ -1,6 +1,8 @@
 # TrekIt
 Fullstack application to search popular hikes with verified user profile
 
+![trekit-demo](https://thumbs.gfycat.com/SmugUglyEmu-size_restricted.gif)
+
 ## Tech Stack
 * Frontend: JavaScript, React, Webpack
 * Backend: Node.js, Express, Passport, Bcrypt
