@@ -14,14 +14,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 'home',
       prevSearchTerm: '',
       searchTerm: '',
       searchLat: 0,
       searchLon: 0,
       hikeResults: '',
       currentUser: '',
-      redirectTo: '',
       loggedIn: false,
     };
     this.addUser = this.addUser.bind(this);
@@ -33,20 +31,15 @@ class App extends React.Component {
   }
 
   handleSearch(e) {
-    this.setState({
-      searchTerm: e.target.value,
-    });
+    this.setState({ searchTerm: e.target.value });
   }
 
   searchHikingProject(lat, lon, token) {
     axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&key=${token}`)
     .then(responseHiking => {
       console.log(responseHiking);
-      this.setState ({
-        hikeResults: responseHiking.data.trails,
-      });
+      this.setState ({ hikeResults: responseHiking.data.trails });
       const element = document.getElementById('hikelistSummary');
-      console.log(element);
       element.scrollIntoView({
         behavior: 'smooth', 
         block: "start", 
@@ -68,13 +61,10 @@ class App extends React.Component {
       });
     })
     .then(() => this.searchHikingProject(this.state.searchLat, this.state.searchLon, this.props.searchHikingProject))
-    .catch(function (error) {
-      console.log(error);
-    })
+    .catch(err => console.log(err));
   }
 
   addUser(e, newuser) {
-    console.log("adding new user")
     e.preventDefault();
     axios.post('/signup', {
       email: `${newuser.email}`,
@@ -82,20 +72,14 @@ class App extends React.Component {
       password2: `${newuser.password2}`,
     })
     .then((res)=> {
-      console.log(res);
-      // add new step after new user added
-      this.setState({
-        currentUser: newuser.email,
-      })
+      console.log('new user added: ', res);
       history.push('/searchHikes');
+      this.setState({ currentUser: newuser.email })
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
   }
 
   loginUser(e, olduser) {
-    console.log("logging in user")
     e.preventDefault();
     axios.post('/login', {
       email: `${olduser.email}`,
@@ -107,20 +91,18 @@ class App extends React.Component {
         history.push('/searchHikes');
         this.setState({ 
           currentUser: res.data,
-          redirectTo: '/login',
           loggedIn: true,
         })
       } else {
         console.log('Login error')
       }
     })
-    .catch((err) => {
-      console.log('Login server error: ', err);
-    });
+    .catch(err => console.log('Login server error: ', err));
   }
 
   handleSignout(e) {
     e.preventDefault();
+    history.push('/');
     this.setState({ 
       prevSearchTerm: '',
       searchTerm: '',
@@ -129,7 +111,7 @@ class App extends React.Component {
       hikeResults: '',
       currentUser: '',
       loggedIn: false,
-    }, () => history.push('/'));
+    });
   }
 
   render() {
