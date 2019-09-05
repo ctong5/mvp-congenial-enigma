@@ -68,26 +68,22 @@ passport.deserializeUser(function(id, done) {
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/success', (req, res) => {
-  console.log(req.body)
   console.log(req.query)
   res.status(200).send(req.query.username);
 });
 
 app.get('/error', (req, res) => res.send("error logging in"));
 
-// Endpoint to add user
 app.post('/signup', (req, res) => {
   const password1 = req.body.password1;
   const password2 = req.body.password2;
-
   if (password1 === password2) {
     controllers.createUser(req, res);
   } else {
-    res.send(`{errors: 'Passwords don't match'}`).status(500);
+    res.send(`{error: 'Passwords don't match'}`).status(500);
   }
 });
 
-// Endpoint to login existing user
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/error'}), 
   (req, res) => {
@@ -95,13 +91,6 @@ app.post('/login',
   }
 );
 
-// Endpoint to get current user
-app.get('/user', (req, res) => {
-  console.log("req.user in /user")
-  res.send("req.user from /user: ", req.user);
-})
-
-// Endpoint to logout
 app.get('/logout', (req, res) => {
   req.logout();
   res.send(null);
