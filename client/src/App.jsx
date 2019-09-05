@@ -24,33 +24,12 @@ class App extends React.Component {
       redirectTo: '',
       loggedIn: false,
     };
-    this.handleClickSignup = this.handleClickSignup.bind(this);
-    this.handleClickHome = this.handleClickHome.bind(this);
-    this.handleClickLogin = this.handleClickLogin.bind(this);
     this.addUser = this.addUser.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
     this.searchHikingProject = this.searchHikingProject.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
-  }
-
-  handleClickSignup() {
-    this.setState({
-      page: 'signup',
-    });
-  }
-
-  handleClickHome() {
-    this.setState({
-      page: 'home',
-    });
-  }
-
-  handleClickLogin() {
-    this.setState({
-      page: 'login',
-    });
   }
 
   handleSearch(e) {
