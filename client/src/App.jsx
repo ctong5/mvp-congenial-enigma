@@ -2,13 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import SearchHikes from './SearchHikes';
 import Home from './Home';
-import NavBar from './NavBar';
 import Signup from './Signup';
 import Login from './Login';
-import HikeList from './HikeList';
 import { Router, Route, Switch, Link, NavLink, Redirect, withRouter } from 'react-router-dom';
 import history from './history';
-import LinkButton from './LinkButton';
 
 class App extends React.Component {
   constructor(props) {
