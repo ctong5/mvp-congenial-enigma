@@ -35,9 +35,8 @@ class App extends React.Component {
   }
 
   searchHikingProject(lat, lon, token) {
-    axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&key=${token}`)
+    axios.get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lon}&maxResults=12&key=${token}`)
     .then(responseHiking => {
-      console.log(responseHiking);
       this.setState ({ hikeResults: responseHiking.data.trails });
       const element = document.getElementById('hikelistSummary');
       element.scrollIntoView({
@@ -47,12 +46,12 @@ class App extends React.Component {
     })
   }
 
-  submitSearch(e, searchTerm) {
+  submitSearch(e) {
     e.preventDefault();
     const token = this.props.searchMapbox;
-    axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.searchTerm}.json?access_token=${token}`)
+    const searchTerm = this.state.searchTerm;
+    axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchTerm}.json?access_token=${token}`)
     .then(responseMapbox => {
-      console.log('response from mapbox', responseMapbox);
       this.setState ({
         searchLon: responseMapbox.data.features[0].geometry.coordinates[0],
         searchLat: responseMapbox.data.features[0].geometry.coordinates[1],
@@ -60,7 +59,12 @@ class App extends React.Component {
         searchTerm: '',
       });
     })
-    .then(() => this.searchHikingProject(this.state.searchLat, this.state.searchLon, this.props.searchHikingProject))
+    .then(() => {
+      const lat = this.state.searchLat;
+      const lon = this.state.searchLon;
+      const token = this.props.searchHikingProject;
+      this.searchHikingProject(lat, lon, token);
+    })
     .catch(err => console.log(err));
   }
 
@@ -72,7 +76,6 @@ class App extends React.Component {
       password2: `${newuser.password2}`,
     })
     .then((res)=> {
-      console.log('new user added: ', res);
       history.push('/searchHikes');
       this.setState({ currentUser: newuser.email })
     })
@@ -86,7 +89,6 @@ class App extends React.Component {
       password: `${olduser.password}`,
     })
     .then((res)=> {
-      console.log(res);
       if (res.data) {
         history.push('/searchHikes');
         this.setState({ 
