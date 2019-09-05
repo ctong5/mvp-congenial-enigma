@@ -28,7 +28,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy ( 
-  {usernameField: "email", passwordField:"password"},
+  {usernameField: "email", passwordField: "password"},
   (email, password, done) => {
     controllers.getUserByEmail(email, (err, user) => {
       if (err) {
@@ -37,15 +37,13 @@ passport.use(new LocalStrategy (
       if (!user) {
         return done(null, false, {message: 'Unknown User. User not found'});
       }
-      console.log("comparing input password: ", password)
-      console.log("...to input user.password: ", user.password)
       controllers.comparePassword(password, user.password, function (err, isMatch){
         if (err) {
           console.log("err in comparePassword");
           return done(null, false);
         }
         if (isMatch) {
-          console.log('its a match!')
+          console.log('its a match!');
           return done(null, user);
         } else {
           return done(null, false, { message: 'Invalid password' });
@@ -72,7 +70,9 @@ app.get('/success', (req, res) => {
   res.status(200).send(req.query.username);
 });
 
-app.get('/error', (req, res) => res.send("error logging in"));
+app.get('/error', (req, res) => {
+  res.send("error logging in")
+});
 
 app.post('/signup', (req, res) => {
   const password1 = req.body.password1;
